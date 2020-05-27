@@ -19,17 +19,17 @@ function ActualWeatherWrapper() {
     },
     {
       "icon": "https://image.flaticon.com/icons/svg/2948/2948393.svg",
-      "label": "Air pressure",
+      "label": "Air pressure:",
       "value": weather.air_pressure
     },
     {
       "icon": "https://image.flaticon.com/icons/svg/2938/2938050.svg",
-      "label": "Humidity",
+      "label": "Humidity:",
       "value": weather.humidity
     },
     {
       "icon": "https://image.flaticon.com/icons/svg/2938/2938002.svg",
-      "label": "Wind Speed",
+      "label": "Wind Speed:",
       "value": weather.wind_speed
     }
   ];
@@ -40,7 +40,7 @@ function ActualWeatherWrapper() {
 
   return(
     <div className="currentWeather">
-      <WeatherNow temperature={weather.the_temp} weatherStateName={weather.weather_state_name} iconUrl={url}/>
+      <WeatherNow temperature={(Number(weather.the_temp)).toFixed(0)} weatherStateName={weather.weather_state_name} iconUrl={url}/>
       <div className="currentWeather__attributes">
         {attributes}
       </div>

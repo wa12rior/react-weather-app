@@ -12,13 +12,13 @@ function WeatherWidget() {
 
     for (const day of remainingDays) {
       const url = "https://www.metaweather.com/static/img/weather/" + day.weather_state_abbr + ".svg";
-      teasers.push(<WeatherTeaser key={day.id} dayName={days[(new Date(day.applicable_date).getDay())]} dayIconUrl={url} dayTemperature={day.the_temp}/>)
+      teasers.push(<WeatherTeaser key={day.id} dayName={days[(new Date(day.applicable_date).getDay())].substring(0, 3)} dayIconUrl={url} dayTemperature={(Number(day.the_temp)).toFixed(0)}/>)
     }
 
     return (
       <Fragment>
         <ActualWeatherWrapper/>
-        <div className="teasers">
+        <div className="weather__teasers">
           {teasers}
         </div>
       </Fragment>

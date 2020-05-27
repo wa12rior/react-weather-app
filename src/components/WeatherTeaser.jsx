@@ -5,7 +5,7 @@ class WeatherTeaser extends Component {
     return (
       <div className="weather__teaser">
         <strong className="weather__dayName">{this.props.dayName}</strong>
-        <img src={this.props.dayIconUrl} alt="" className="weather__teaserIcon"/>
+        <object data={this.props.dayIconUrl} type="image/svg+xml" className="weather__teaserIcon"/>
         <strong className="weather__teaserTemperature">{this.props.dayTemperature}&#8451;</strong>
       </div>
     )
