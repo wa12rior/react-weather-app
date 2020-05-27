@@ -5,26 +5,34 @@ import {useSelector} from "react-redux";
 
 function ActualWeatherWrapper() {
   const attributes = [];
-  const weather = useSelector(state => state.consolidated_weather[0]);
-  let url = "https://www.metaweather.com/static/img/weather/" + weather.weather_state_abbr + ".svg";
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const weather = useSelector(state => state.activeWeather);
+  const url = "https://www.metaweather.com/static/img/weather/" + weather.weather_state_abbr + ".svg";
+  const date = new Date(weather.applicable_date);
+  const day_id = date.getDay();
 
   const properties = [
     {
-      "icon": "",
+      "icon": "https://image.flaticon.com/icons/svg/2928/2928948.svg",
+      "label": "",
+      "value": days[day_id]
+    },
+    {
+      "icon": "https://image.flaticon.com/icons/svg/2948/2948393.svg",
       "label": "Air pressure",
       "value": weather.air_pressure
     },
     {
-      "icon": "",
+      "icon": "https://image.flaticon.com/icons/svg/2938/2938050.svg",
       "label": "Humidity",
       "value": weather.humidity
     },
     {
-      "icon": "",
+      "icon": "https://image.flaticon.com/icons/svg/2938/2938002.svg",
       "label": "Wind Speed",
       "value": weather.wind_speed
     }
-  ]
+  ];
 
   for (let property of properties) {
     attributes.push(<WeatherProperty key={property.label} iconUrl={property.icon} value={property.label + " " + property.value}/>)

@@ -20,7 +20,12 @@ async function fetchData() {
     });
 }
 
-export const weatherReducer = (state = data, action) => {
+const store_data = {
+  all: data,
+  activeWeather: data.consolidated_weather[0],
+};
+
+export const weatherReducer = (state = store_data, action) => {
   switch (action.type) {
     case "GET_DAY_WEATHER":
       return getDayWeather(action.dayId);
