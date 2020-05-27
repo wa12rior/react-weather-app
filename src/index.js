@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { custom } from "./reducers/customReducer";
+import { weatherReducer } from "./reducers/weatherReducer";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-const store = createStore(custom);
+const store = createStore(weatherReducer);
 
 ReactDOM.render(
   <React.StrictMode>

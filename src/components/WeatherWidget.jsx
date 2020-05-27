@@ -25,7 +25,7 @@ class WeatherWidget extends Component {
     ];
 
     for (const day of data) {
-      teasers.push(<WeatherTeaser dayName={day.dayName} dayIconUrl={day.dayIconUrl} dayTemperature={day.dayTemperature}/>)
+      teasers.push(<WeatherTeaser key={day.dayName} dayName={day.dayName} dayIconUrl={day.dayIconUrl} dayTemperature={day.dayTemperature}/>)
     }
     return (
       <Fragment>

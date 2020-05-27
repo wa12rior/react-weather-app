@@ -4,10 +4,10 @@ class WeatherNow extends Component {
   render() {
     return (
       <div className="weather__wrapper">
-        <img src="" alt="weather actual icon" className="weather__icon"/>
+        <img src={this.props.iconUrl} alt="weather actual icon" className="weather__icon"/>
         <div className="weather__info">
-          <p className="weather__temperature">21&#8451;</p>
-          <strong className="weather__stateName">Mostly Cloudy</strong>
+          <p className="weather__temperature">{this.props.temperature}&#8451;</p>
+          <strong className="weather__stateName">{this.props.weatherStateName}</strong>
         </div>
       </div>
     );
