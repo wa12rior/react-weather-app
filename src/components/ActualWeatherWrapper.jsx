@@ -20,17 +20,17 @@ function ActualWeatherWrapper() {
     {
       "icon": "https://image.flaticon.com/icons/svg/2948/2948393.svg",
       "label": "Air pressure:",
-      "value": weather.air_pressure
+      "value": weather.air_pressure + " hPa"
     },
     {
       "icon": "https://image.flaticon.com/icons/svg/2938/2938050.svg",
       "label": "Humidity:",
-      "value": weather.humidity
+      "value": weather.humidity + "%"
     },
     {
       "icon": "https://image.flaticon.com/icons/svg/2938/2938002.svg",
       "label": "Wind Speed:",
-      "value": weather.wind_speed
+      "value": (Number(weather.wind_speed)).toFixed(2) + " km/h"
     }
   ];
 
