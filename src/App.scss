@@ -1,0 +1,125 @@
+$header-color: #17cb8e;
+$header-color-darker: #19aa79;
+$teaser-active: #fafafa;
+$teaser-border: #f1f1f1;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html, body {
+  height: 100%;
+
+  * {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 800px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.currentWeather {
+  background-color: $header-color;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 250px;
+}
+
+.weather {
+  &__smallIcon, &__teaserIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__icon {
+    width: 150px;
+    height: 150px;
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+  }
+
+  &__smallIcon {
+    filter: invert(0.5) opacity(0.6);
+    -webkit-filter: invert(0.5) opacity(0.6);
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__attributes {
+    display: flex;
+    padding: 10px;
+
+    * {
+      margin: auto 0;
+      padding-left: 10px;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__teasers {
+    display: flex;
+  }
+
+  &__teaser {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: .3s ease background-color;
+    height: 150px;
+    border-left: 1px solid $teaser-border;
+
+    * {
+      font-weight: lighter;
+    }
+
+    .weather__teaserTemperature {
+      transform: translateY(-40%);
+    }
+    
+    &--active {
+      background-color: $teaser-active;
+    }
+  }
+
+  &__teaser:hover, &__teaser:active {
+    background-color: $teaser-active;
+    cursor: pointer;
+  }
+}
+
+.weather__info {
+  margin: auto 20px;
+
+  .weather__temperature {
+    font-weight: bold;
+    font-size: 5rem;
+    margin: 0;
+
+    sup {
+      font-weight: normal;
+      font-size: 1.3rem;
+    }
+  }
+
+  .weather__stateName {
+    padding-left: 5px;
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+}
